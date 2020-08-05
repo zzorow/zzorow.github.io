@@ -6,20 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hexo</title>
+  <title>C++ Primer 第三章 字符串、向量和数组 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2020/08/03/hello-world/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="C++ Primer 第三章 字符串、向量和数组">
+<meta property="og:url" content="http://yoursite.com/2020/08/05/C++%20Primer%20%E7%AC%AC%E4%B8%89%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-08-03T10:45:40.439Z">
-<meta property="article:modified_time" content="2020-08-03T11:30:12.075Z">
+<meta property="article:published_time" content="2020-08-05T09:12:46.000Z">
+<meta property="article:modified_time" content="2020-08-05T09:43:26.754Z">
 <meta property="article:author" content="Zz">
-<meta property="article:tag" content="gg">
-<meta property="article:tag" content="aa">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -156,41 +153,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C++ Primer 第三章" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      C++ Primer 第三章 字符串、向量和数组
     </h1>
   
 
         
-        <a href="/2020/08/03/hello-world/" class="archive-article-date">
-  	<time datetime="2020-08-03T10:45:40.439Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
+        <a href="/2020/08/05/C++%20Primer%20%E7%AC%AC%E4%B8%89%E7%AB%A0/" class="archive-article-date">
+  	<time datetime="2020-08-05T09:12:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+        <blockquote>
+</blockquote>
 <a id="more"></a>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="关于-string-用法的查缺补漏"><a href="#关于-string-用法的查缺补漏" class="headerlink" title="关于 string 用法的查缺补漏"></a>关于 string 用法的查缺补漏</h3><ul>
+<li><p>明确 <strong>getline</strong> 的用法，以换行符为结束，会读入换行符之前的包括空格的所有字符（不包括换行符本身）</p>
+</li>
+<li><p>若要处理 <strong>string</strong> 中的每个字符，最好的办法是使用 C++ 11 标准提供的语句：**<em>范围for**</em> 语句。这种语句遍历给定序列中的每个元素并对序列中的每个值执行某种操作，其语法格式：</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (declaration : expression)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中，expression 部分是一个对象，用于表示一个序列。declaration 部分负责定义一个变量，该变量将被用于访问序列中的基础元素。每次迭代，declaration 部分的变量会被初始化为 expression 部分的下一个元素值。例程如下：</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">&quot;some string&quot;</span>)</span></span>;</span><br><span class="line"><span class="comment">//每行输出 str 中的一个字符</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> c : str)                <span class="comment">//对于 str 中的每个字符</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="built_in">endl</span>;            <span class="comment">//输出当前字符，后面紧跟一个换行符</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<ul>
+<li>在 <strong>cctype</strong> 头文件中定义了一组标准库函数用于判断所给 <strong>string</strong> 的数据类型（page 82）。一个稍微复杂些的例子，使用范围 <strong>for</strong> 语句和 <strong>ispunct</strong> 函数来统计 <strong>stirng</strong> 对象中标点符号的个数：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">stirng <span class="title">s</span><span class="params">(<span class="string">&quot;Hello World!!!&quot;</span>)</span></span>;</span><br><span class="line"><span class="comment">//punct_cnt 的类型和 s.size 的返回类型一样；参见 2.5.3 节 （第 62 页）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">decltype</span>(s.size()) punct_cnt = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//统计 s 中标点符号的数量</span></span><br><span class="line"><span class="keyword">for</span> ( <span class="keyword">auto</span> c : s )                    <span class="comment">//对于s中的每个字符</span></span><br><span class="line">    <span class="keyword">if</span> ( <span class="built_in">ispunct</span>(c) )                 <span class="comment">//如果该字符是标点符号</span></span><br><span class="line">        ++punct_cnt;                  <span class="comment">//将标点符号的计数加一</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; punct_cnt &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -225,11 +228,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">gg</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">aa</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -241,7 +240,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
+        			<a href="/categories/学而思//" class="article-tag-list-link color4">学而思</a>
         		</li>
       		
 		</ul>
@@ -296,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/03/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/05/C++%20Primer%20%E7%AC%AC%E4%B8%89%E7%AB%A0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -310,15 +309,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/08/03/%E7%AC%AC%E4%B8%80%E7%AF%87blog/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          C++ Primer —— 001
-        
-      </div>
-    </a>
   
+    <a href="/2020/08/03/KNN%E7%9A%84%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3%E4%B8%8E%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">KNN的算法思想与简单实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -440,14 +435,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">gg</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">aa</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
