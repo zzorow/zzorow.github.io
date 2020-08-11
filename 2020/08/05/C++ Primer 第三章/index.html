@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-05T09:12:46.000Z">
-<meta property="article:modified_time" content="2020-08-05T09:43:26.754Z">
+<meta property="article:modified_time" content="2020-08-05T10:06:37.530Z">
 <meta property="article:author" content="Zz">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -180,7 +180,7 @@
 <h3 id="关于-string-用法的查缺补漏"><a href="#关于-string-用法的查缺补漏" class="headerlink" title="关于 string 用法的查缺补漏"></a>关于 string 用法的查缺补漏</h3><ul>
 <li><p>明确 <strong>getline</strong> 的用法，以换行符为结束，会读入换行符之前的包括空格的所有字符（不包括换行符本身）</p>
 </li>
-<li><p>若要处理 <strong>string</strong> 中的每个字符，最好的办法是使用 C++ 11 标准提供的语句：**<em>范围for**</em> 语句。这种语句遍历给定序列中的每个元素并对序列中的每个值执行某种操作，其语法格式：</p>
+<li><p>若要处理 <strong>string</strong> 中的每个字符，最好的办法是使用 C++ 11 标准提供的语句：<strong>范围for</strong> 语句。这种语句遍历给定序列中的每个元素并对序列中的每个值执行某种操作，其语法格式：</p>
 </li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (declaration : expression)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure>
@@ -194,6 +194,11 @@
 <li>在 <strong>cctype</strong> 头文件中定义了一组标准库函数用于判断所给 <strong>string</strong> 的数据类型（page 82）。一个稍微复杂些的例子，使用范围 <strong>for</strong> 语句和 <strong>ispunct</strong> 函数来统计 <strong>stirng</strong> 对象中标点符号的个数：</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">stirng <span class="title">s</span><span class="params">(<span class="string">&quot;Hello World!!!&quot;</span>)</span></span>;</span><br><span class="line"><span class="comment">//punct_cnt 的类型和 s.size 的返回类型一样；参见 2.5.3 节 （第 62 页）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">decltype</span>(s.size()) punct_cnt = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//统计 s 中标点符号的数量</span></span><br><span class="line"><span class="keyword">for</span> ( <span class="keyword">auto</span> c : s )                    <span class="comment">//对于s中的每个字符</span></span><br><span class="line">    <span class="keyword">if</span> ( <span class="built_in">ispunct</span>(c) )                 <span class="comment">//如果该字符是标点符号</span></span><br><span class="line">        ++punct_cnt;                  <span class="comment">//将标点符号的计数加一</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; punct_cnt &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>若要使用范围 for 语句改变字符串中的字符，必须把循环变量定义成引用类型。假设要把字符串改写成大写字母的形式，为了做到这一点可以使用标准库函数 <strong><em>toupper</em></strong> ，该函数接收一个字符，然后输出其对应的大写形式。只要对其中的每个字符调用 <strong><em>toupper</em></strong> 函数并将结果再赋给原字符就可以了：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(<span class="string">&quot;Hello World!!!&quot;</span>)</span></span>;</span><br><span class="line"><span class="comment">//转换成大写形式</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp;c : s)                <span class="comment">//对于s中的每个字符</span></span><br><span class="line">    c = <span class="built_in">toupper</span>(c);              <span class="comment">//c是一个引用，因此赋值语句将改变s中字符的值</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -308,6 +313,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/08/10/C-Primer-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C++ Primer 第四章 表达式
+        
+      </div>
+    </a>
   
   
     <a href="/2020/08/03/KNN%E7%9A%84%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3%E4%B8%8E%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" id="article-nav-older" class="article-nav-link-wrap">
@@ -442,6 +456,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MachineLearning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Numpy</a>
               </li>
             
             <div class="clearfix"></div>
